@@ -14,7 +14,7 @@
 CRGB leds[NUM_LEDS];
 
 // create tasks for actors (lamps, topper, selenoids)
-Topper topper( 500, 6, 7 );
+Topper topper( 300, 6, 7 );
 
 Led upperScoop( 2, 4 );
 Led lowerScoop( 0, 2 );
@@ -33,7 +33,7 @@ void setup() {
     SoftTimer.add( &lowerScoop );
 
     // let topper blink
-    //topper.setMode( blink50 );
+    topper.setMode( blink50 );
 
 }
 

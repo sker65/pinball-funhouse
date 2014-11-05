@@ -6,7 +6,8 @@ Task ( 100 ) {
     this->topper = topper;
     this->upperScoop = upperScoop;
     this->lowerScoop = lowerScoop;
-    this->state = 0;
+    state = 0;
+    topperDelay=200;
 }
 
 void Attract::run() {
@@ -15,6 +16,13 @@ void Attract::run() {
     case 0:
         upperScoop->fadeTo( 0,0,255,20);
         lowerScoop->fadeTo( 255,0,0,20);
+        if( topperDelay == 200 ) {
+          topperDelay = 400;
+        } else {
+          topperDelay = 200;
+        }
+        topper->setPeriodMs(topperDelay);
+        topper->setMode(blink50);
         this->setPeriodMs( 10000 );
         break;
     case 1:

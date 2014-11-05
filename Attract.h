@@ -14,7 +14,7 @@ public:
    virtual void run();
 
 private:
-
+    int topperDelay;
     int state;
 
     Topper* topper;
