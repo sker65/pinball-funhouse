@@ -12,7 +12,7 @@
 
 // init fast led data struct for strip
 #define NUM_LEDS 6
-#define RGB_DATA_PIN 28
+#define RGB_DATA_PIN 34
 #define TOPPER1 30
 #define TOPPER2 32
 
@@ -26,7 +26,7 @@ Led lowerScoop( 0, 2 );
 
 Attract attract( &topper, &upperScoop, &lowerScoop );
 
-TogglePinAction clown1(22,false);
+TogglePinAction clown1(13,true);
 
 SwitchScanner switchScanner;
 
@@ -49,9 +49,11 @@ void setup() {
     // let topper blink
     topper.setMode( blink50 );
 
-    switchScanner.registerSwitchAction(1,2,&clown1);
+    switchScanner.registerSwitchAction(2,1,&clown1);
 
     attachInterrupt(0, interrupt, FALLING);
+    
+    Serial.begin(9600);
 
 }
 
