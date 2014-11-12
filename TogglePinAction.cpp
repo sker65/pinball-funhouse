@@ -5,21 +5,23 @@
  *      Author: srinke
  */
 
-#include <TogglePinAction.h>
-
 #include <Arduino.h>
 
-TogglePinAction::TogglePinAction(int pin, boolean highOnActive) {
+#include "TogglePinAction.h"
+
+TogglePinAction::TogglePinAction(int pin, boolean highOnActive) : SwitchAction() {
 	this->pin = pin;
 	this->highOnActive = highOnActive;
 	pinMode(pin, OUTPUT);
 }
 
 void TogglePinAction::onSwitchActive() {
+//    Serial.println("switch active");
 	digitalWrite(pin,highOnActive?HIGH:LOW);
 }
 
 void TogglePinAction::onSwitchInactive() {
+//  Serial.println("switch NOT active");
 	digitalWrite(pin,highOnActive?LOW:HIGH);
 }
 

@@ -8,12 +8,11 @@
 #ifndef TOGGLEPINACTION_H_
 #define TOGGLEPINACTION_H_
 
-#include <SwitchAction.h>
-#include <Arduino.h>
+#include "SwitchAction.h"
 
-class TogglePinAction: public SwitchAction {
+class TogglePinAction : public SwitchAction {
 public:
-	TogglePinAction(int pin, boolean invers);
+	TogglePinAction(int pin, boolean highOnActive);
 	void onSwitchActive();
 	void onSwitchInactive();
 private:
