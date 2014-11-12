@@ -5,24 +5,22 @@
 #include "Topper.h"
 #include "Led.h"
 
-class Attract : 
-public Task {
+class Attract: public Task {
 
 public:
-    Attract(Topper* topper, Led* upperScoop, Led* lowerScoop );
+	Attract(Topper* topper, Led* upperScoop, Led* lowerScoop);
 
-   virtual void run();
+	virtual void run();
 
 private:
-    int topperDelay;
-    int state;
+	int topperDelay;
+	int state;
 
-    Topper* topper;
-    Led* upperScoop;
-    Led* lowerScoop;
+	Topper* topper;
+	Led* upperScoop;
+	Led* lowerScoop;
 
 };
 
 #endif
-
 

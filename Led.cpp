@@ -3,8 +3,8 @@
 
 Led::Led(int offset) : 
 Task( LED_MS ) {
-    this->offset = offset;
-    this->number = 1;
+    this->offset = 1;
+    number = actStep = db = dr = dg = fadeSteps = 0;
     this->switchOff();
 }
 
@@ -12,6 +12,7 @@ Led::Led(int offset, int number) :
 Task( LED_MS ) {
     this->offset = offset;
     this->number = number;
+    actStep = db = dr = dg = fadeSteps = 0;
     this->switchOff();
 }
 

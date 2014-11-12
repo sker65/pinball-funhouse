@@ -1,10 +1,11 @@
 #include "ScanSwitchedLamp.h"
 #include "Arduino.h"
 
-ScanSwitchedLamp::ScanSwitchedLamp( int pin ) : 
+ScanSwitchedLamp::ScanSwitchedLamp( int p ) :
 Task( SCAN_LAMP_MS ) {
-    this->pin = pin;
-    this->state = false;
+    pin = p;
+    state = false;
+    lastTimeOn = 0;
     pinMode( pin, INPUT );
 }
 

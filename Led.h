@@ -12,8 +12,7 @@ extern CRGB leds[];
  * a task for controlling leds. leds are managed by fast led with is sharing one CRGB array.
  * this class represents one single led of such a strip or a section (offset, number)
  */
-class Led : 
-public Task {
+class Led : public Task {
 public:
     Led( int offset );
     Led( int offset, int number );
