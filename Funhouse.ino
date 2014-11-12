@@ -7,6 +7,8 @@
 #include "Led.h"
 #include "Attract.h"
 #include "ScanSwitchedLamp.h"
+#include "SwitchScanner.h"
+#include "TogglePinAction.h"
 
 // init fast led data struct for strip
 #define NUM_LEDS 6
@@ -21,6 +23,14 @@ Led lowerScoop( 0, 2 );
 
 Attract attract( &topper, &upperScoop, &lowerScoop );
 
+TogglePinAction clown1(22,false);
+
+SwitchScanner switchScanner;
+
+void interrupt() {
+	switchScanner.readSwitches();
+}
+
 void setup() {
 
     // init strip
@@ -31,9 +41,15 @@ void setup() {
     SoftTimer.add( &attract );
     SoftTimer.add( &upperScoop );
     SoftTimer.add( &lowerScoop );
+    SoftTimer.add( &switchScanner );
 
     // let topper blink
     topper.setMode( blink50 );
 
+    switchScanner.registerSwitchAction(1,2,&clown1);
+
+    attachInterrupt(0, interrupt, FALLING);
+
 }
+
 
