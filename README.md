@@ -14,3 +14,4 @@ and sensor classes that track the connected switches or switched lamps.
 Third category of tasks are detection of game modes and controlling actors (not implemented
 until now). Everything is modeled as task and can run concurrently to other task.
 
+Looks like this: https://www.youtube.com/watch?v=kvjYMKDT-Vk
