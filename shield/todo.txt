@@ -1,0 +1,3 @@
+TODO for Shield
+- add ULN2803 driver for high power loads
+- use smd also for 4050 level shifter
